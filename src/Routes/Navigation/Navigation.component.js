@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import Logo from "../../assets/logos/logo.png";
 import { Fragment } from "react";
+import { BsCartCheck } from "react-icons/bs";
 import classes from "./Navigation.module.css";
 
 const Navigation = () => {
@@ -9,9 +10,6 @@ const Navigation = () => {
       <nav className={classes.container}>
         <Link to="/" className={classes.logoContainer}>
           <img className={classes.logo} src={Logo} alt="" />
-        </Link>
-        <Link className={classes.item} to="/home">
-          HOME
         </Link>
         <Link className={classes.item} to="/shop">
           SHOP
@@ -25,8 +23,11 @@ const Navigation = () => {
         <Link className={classes.item} to="/contactus">
           CONTACT US
         </Link>
-        <Outlet />
+        <Link to="/checkout">
+        <BsCartCheck className={classes.cart} size={30} color="000"/>
+        </Link>
       </nav>
+      <Outlet />
     </Fragment>
   );
 };
