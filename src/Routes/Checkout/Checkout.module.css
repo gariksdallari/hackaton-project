@@ -1,5 +1,17 @@
 .wrapper {
-  background-color: #ccc;
-  height: 500px;
-  width: 100%;
+  margin: 50px auto;
+  max-width: 800px;
+}
+
+.total {
+display: flex;
+justify-content: flex-end;
+}
+
+.price {
+  margin-right: 30px
+}
+
+.value {
+  font-weight: 700;
 }

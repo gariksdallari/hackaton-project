@@ -5,6 +5,8 @@ import Shop from "./Routes/Shop/Shop.component";
 import Auth from "./Routes/Auth/Auth.component";
 import ContactUs from "./Routes/Contactus/Contactus.component";
 
+import Checkout from "./Routes/Checkout/Checkout.component";
+
 import "./App.css";
 
 function App() {
@@ -13,7 +15,7 @@ function App() {
       <Route path="/" element={<Navigation />}>
         <Route index element={<Home />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/checkout" />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/contactus" element={<ContactUs />} />
       </Route>

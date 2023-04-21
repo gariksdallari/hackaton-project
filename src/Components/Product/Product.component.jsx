@@ -10,6 +10,7 @@ const Product = ({product}) => {
     navigate(`/shop/${product.sku}`);
   };
   const addToCartHandler = () => {
+
     dispatch(addProduct(product));
 
     window.DY.API("event", {
