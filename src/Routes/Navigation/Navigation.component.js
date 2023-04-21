@@ -15,7 +15,6 @@ const Navigation = () => {
   const onCheckout = () => {
     dispatch(setCurrentUser(null))
   };
-  console.log(user);
 
   return (
     <Fragment>
