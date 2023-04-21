@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../../store/user/user";
 import classes from "./RegisterForm.module.css";
 
 const defaultInputValues = {
@@ -10,6 +12,7 @@ const defaultInputValues = {
 const RegisterForm = () => {
   const [formFields, setFormFields] = useState(defaultInputValues);
   const { name, email, password } = formFields;
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,6 +21,7 @@ const RegisterForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(setCurrentUser(formFields));
     resetFormFields();
   };
 
