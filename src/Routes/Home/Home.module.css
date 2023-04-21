@@ -1,0 +1,23 @@
+.container {
+    padding: 20px 0;
+}
+.hero {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.heroImage {
+    margin-right: 50px;
+    width: 25vw;
+    border-radius: 10px;
+}
+.footer {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;    
+    border-top: 1px solid lightgray;
+    margin-top: 10px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+}
