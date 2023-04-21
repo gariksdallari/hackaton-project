@@ -1,56 +1,61 @@
-import {useState} from 'react';
-import classes from './LoginForm.module.css'
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../../store/user/user";
+import classes from "./LoginForm.module.css";
 
 const defaultInputValues = {
-    login: "",
-    password: "",
-  };
+  name: "",
+  password: "",
+};
 
 const LoginForm = () => {
+  const [formFields, setFormFields] = useState(defaultInputValues);
+  const { name, password } = formFields;
+  const dispatch = useDispatch();
 
-    const [formFields, setFormFields] = useState(defaultInputValues);
-    const { login, password } = formFields;
-  
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormFields({ ...formFields, [name]: value });
-    };
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      resetFormFields();
-    };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormFields({ ...formFields, [name]: value });
+  };
 
-    const resetFormFields = () => {
-        setFormFields(defaultInputValues);
-      };
-    return (
-        <div className={classes.loginContainer}>
-        <form className={classes.loginForm} onSubmit={handleSubmit}>
-          <input
-            className={classes.input}
-            onChange={handleChange}
-            name="login"
-            type="text"
-            value={login}
-            required
-            placeholder="Login..."
-          />
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(setCurrentUser(formFields));
+    resetFormFields();
+  };
 
-          <input
-            className={classes.input}
-            onChange={handleChange}
-            name="password"
-            type="password"
-            value={password}
-            required
-            placeholder="Password..."
-          />
+  const resetFormFields = () => {
+    setFormFields(defaultInputValues);
+  };
+  return (
+    <div className={classes.loginContainer}>
+      <form className={classes.loginForm} onSubmit={handleSubmit}>
+        <input
+          className={classes.input}
+          onChange={handleChange}
+          name="name"
+          type="text"
+          value={name}
+          required
+          placeholder="Name..."
+        />
 
-          <button className={classes.button} type="submit">JOIN</button>
-        </form>
-      </div>
-    )
+        <input
+          className={classes.input}
+          onChange={handleChange}
+          name="password"
+          type="password"
+          value={password}
+          required
+          placeholder="Password..."
+        />
+
+        <button className={classes.button} type="submit">
+          JOIN
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default LoginForm;
