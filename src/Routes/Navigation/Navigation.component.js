@@ -18,7 +18,7 @@ const Navigation = () => {
           CHECKOUT
         </Link>
         <Link className={classes.item} to="/auth">
-          AUTH
+          JOIN US
         </Link>
         <Link className={classes.item} to="/contactus">
           CONTACT US
