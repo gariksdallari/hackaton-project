@@ -6,7 +6,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Navigation/>}>
-        <Route index/>
+        <Route index />
         <Route path='/shop' />
         <Route path='/checkout' />
         <Route path='/auth' />
