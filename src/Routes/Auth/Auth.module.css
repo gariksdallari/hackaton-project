@@ -1,0 +1,10 @@
+.container {
+    text-align: center;
+}
+.title {
+    font-size: 24px;
+}
+.formsContainer {
+    display: flex;
+    justify-content: center;
+}
