@@ -1,8 +1,15 @@
+import { useEffect } from "react";
 import classes from "./Home.module.css";
 import hero from "../../assets/logos/f5bf51a5-1ecf-4651-a5ee-e8afe3a091a3.jpeg";
 import { BsInstagram, BsFacebook } from "react-icons/bs";
+import { setDYContext } from "../../DY/context";
 
 const Home = () => {
+
+  useEffect(() => {
+    setDYContext('HOMEPAGE')
+  }, [])
+
   return (
     <div className={classes.container}>
       <div className={classes.hero}>
@@ -14,8 +21,12 @@ const Home = () => {
         <p>Have a good Time! ❤️</p>
       </div>
       <div className={classes.footer}>
-        <a style={{marginRight: '20px'}} href='/'><BsInstagram color="black" size={50}/></a>
-        <a href='/'><BsFacebook color="black" size={50}/></a>
+        <a style={{ marginRight: "20px" }} href="/">
+          <BsInstagram color="black" size={50} />
+        </a>
+        <a href="/">
+          <BsFacebook color="black" size={50} />
+        </a>
       </div>
     </div>
   );

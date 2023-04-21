@@ -1,5 +1,5 @@
 import classes from './Product.module.css';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../store/Cart/Cart';
 
@@ -10,8 +10,19 @@ const Product = ({product}) => {
     navigate(`/shop/${product.sku}`);
   };
   const addToCartHandler = () => {
-    console.log('product added', product);
     dispatch(addProduct(product));
+
+    window.DY.API("event", {
+      name: "Add to Cart",
+      properties: {
+        dyType: "add-to-cart-v1",
+        value: product.price,
+        productId: product.sku,
+        quantity: 1,
+        size: product.size,
+        cart: []
+      }
+    });
   };
 
   return (

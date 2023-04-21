@@ -22,6 +22,14 @@ const RegisterForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(setCurrentUser(formFields));
+    
+    window.DY.API("event", {
+      name: "Signup",
+      properties: {
+        dyType: "signup-v1",
+        hashedEmail: window.DYO.dyhash.sha256(email.toLowerCase()),
+      }
+    })
     resetFormFields();
   };
 

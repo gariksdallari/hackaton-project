@@ -1,4 +1,5 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
+import { setDYContext } from "../../DY/context";
 import Feed from "../../assets/datafeed/datafeed.json";
 
 import Product from "../../Components/Product/Product.component";
@@ -7,6 +8,10 @@ import classes from "./Shop.module.css";
 
 const Shop = () => {
   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    setDYContext('CATEGORY')
+  }, [])
 
   return (
     <Fragment>
