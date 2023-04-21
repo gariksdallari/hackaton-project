@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.image {
+  width: 200px;
+}
+
+.discription {
+  margin-top: 20px;
+  border: 1px solid green;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

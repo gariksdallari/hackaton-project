@@ -8,7 +8,7 @@ const Shop = () => {
   return (
     <div className={classes.container}>
       {Feed.map((product) => {
-        return <Product key={product.id} product={product}/>
+        return <Product key={product.sku} product={product}/>
       })}
     </div>
   )
