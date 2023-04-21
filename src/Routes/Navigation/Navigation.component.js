@@ -1,14 +1,22 @@
 import { Link, Outlet } from "react-router-dom";
 import Logo from "../../assets/logos/logo.png";
 import { Fragment } from "react";
-import {useSelector} from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
+import { setCurrentUser } from "../../store/user/user";
 import { currentUser } from "../../store/user/user";
 import { BsCartCheck } from "react-icons/bs";
+import { GoSignOut } from "react-icons/go";
 import classes from "./Navigation.module.css";
 
 const Navigation = () => {
+  const dispatch = useDispatch();
   const user = useSelector(currentUser);
-  
+
+  const onCheckout = () => {
+    dispatch(setCurrentUser(null))
+  };
+  console.log(user);
+
   return (
     <Fragment>
       <nav className={classes.container}>
@@ -27,9 +35,9 @@ const Navigation = () => {
         <Link className={classes.item} to="/contactus">
           CONTACT US
         </Link>
-        <div>{user &&  <span>Welcome {user.name}</span>}</div>
+        <div>{user && <span className={classes.greeting}>Welcome {user.name} <GoSignOut onClick={onCheckout} style={{marginLeft: '10px', cursor: 'pointer'}} size={20} color="black"/></span>}</div>
         <Link to="/checkout">
-        <BsCartCheck className={classes.cart} size={30} color="000"/>
+          <BsCartCheck className={classes.cart} size={30} color="000" />
         </Link>
       </nav>
       <Outlet />
